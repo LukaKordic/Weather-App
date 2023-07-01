@@ -9,6 +9,6 @@ data class ForecastUiState(
 ) {
 
   companion object {
-    val LOADING = ForecastUiState(loading = true, error = null, data = WeatherForecast("0"))
+    val LOADING = ForecastUiState(loading = true, error = null, data = WeatherForecast.EMPTY)
   }
 }

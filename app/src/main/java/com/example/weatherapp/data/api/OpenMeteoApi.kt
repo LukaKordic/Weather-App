@@ -11,5 +11,6 @@ interface OpenMeteoApi {
   suspend fun getWeatherForLocation(
     @Query("latitude") latitude: Float,
     @Query("longitude") longitude: Float,
+    @Query("hourly") hourly: String = "temperature_2m",
   ): Response<WeatherForecastResponse>
 }

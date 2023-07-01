@@ -3,9 +3,11 @@ package com.example.weatherapp.data.repository
 import com.example.weatherapp.data.api.OpenMeteoApi
 import com.example.weatherapp.data.location.Location
 import com.example.weatherapp.data.location.LocationProvider
+import com.example.weatherapp.data.responsemodel.mapToDomainModel
 import com.example.weatherapp.domain.WeatherForecast
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.channels.BufferOverflow
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.launchIn
@@ -17,7 +19,8 @@ class ForecastRepository @Inject constructor(
   private val locationProvider: LocationProvider,
 ) {
 
-  private val _forecastFlow = MutableSharedFlow<Result<WeatherForecast>>()
+  private val _forecastFlow =
+    MutableSharedFlow<Result<WeatherForecast>>(replay = 1, onBufferOverflow = BufferOverflow.DROP_OLDEST)
   val forecastFlow: SharedFlow<Result<WeatherForecast>> = _forecastFlow
 
   init {

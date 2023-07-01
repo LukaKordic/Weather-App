@@ -25,13 +25,7 @@ class ForecastViewModel @Inject constructor(private val forecastRepo: ForecastRe
   }
 
   private fun updateUiState(forecastResult: Result<WeatherForecast>) {
-    forecastResult.onSuccess {
-      uiState = ForecastUiState(loading = false, error = null, data = it)
-      println(it)
-    }
-    forecastResult.onFailure {
-      uiState = uiState.copy(error = it)
-      println(it)
-    }
+    forecastResult.onSuccess { uiState = ForecastUiState(loading = false, error = null, data = it) }
+    forecastResult.onFailure { uiState = uiState.copy(error = it) }
   }
 }
