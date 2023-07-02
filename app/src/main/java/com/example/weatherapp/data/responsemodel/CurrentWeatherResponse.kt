@@ -21,7 +21,7 @@ fun CurrentWeatherResponse?.mapToDomainModel(): CurrentWeather {
   } else {
     CurrentWeather(
       formatTemperature(value = temperature ?: 0.0f),
-      isDay = true,
+      isDay = isDay,
       weatherCode = weatherCode ?: 0,
       windSpeed = formatWindSpeed(windSpeed),
       icon = if (isDay) R.drawable.sunny else R.drawable.moon
