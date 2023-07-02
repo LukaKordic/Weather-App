@@ -14,6 +14,5 @@ class LocationResolver @Inject constructor(@ApplicationContext context: Context)
   suspend fun getLocationFromCoordinates(latitude: Double, longitude: Double): String =
     withContext(Dispatchers.Default) {
       geocoder.getFromLocation(latitude, longitude, 1)?.first()?.locality ?: "Location unknown"
-
     }
 }
