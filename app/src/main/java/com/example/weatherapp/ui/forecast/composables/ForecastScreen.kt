@@ -1,9 +1,10 @@
 package com.example.weatherapp.ui.forecast.composables
 
+import android.widget.Toast
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.Snackbar
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.weatherapp.ui.forecast.presentation.ForecastViewModel
@@ -20,9 +21,7 @@ fun ForecastScreen() {
     CurrentLocation(uiState.data.place)
     HourlyForecastSlider(weatherForecast = uiState.data)
     if (uiState.loading) CircularProgressIndicator()
-    if (uiState.error != null) Snackbar {
-      // TODO: 02.07.2023. Implement error display
-    }
+    if (uiState.error != null) Toast.makeText(LocalContext.current, uiState.error.message, Toast.LENGTH_SHORT).show()
   }
 }
 

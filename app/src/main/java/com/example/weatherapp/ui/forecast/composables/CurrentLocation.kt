@@ -13,7 +13,7 @@ import com.example.weatherapp.ui.theme.WeatherAppTheme
 @Composable
 fun CurrentLocation(place: String) {
   Column(modifier = Modifier.padding(start = 40.dp)) {
-    Text(text = "Current location", fontSize = 20.sp)
+    Text(text = "Current location:", fontSize = 20.sp)
     Text(text = place, fontSize = 20.sp)
   }
 }

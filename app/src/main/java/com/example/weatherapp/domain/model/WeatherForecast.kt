@@ -4,12 +4,12 @@ import com.example.weatherapp.data.location.Location
 
 data class WeatherForecast(
   val location: Location,
-  val hourlyTemperature: List<Pair<String, String>>,
+  val hourlyForecast: List<HourForecast>,
   val currentWeather: CurrentWeather,
   val place: String,
 ) {
 
   companion object {
-    val EMPTY = WeatherForecast(Location.ZERO, listOf(), CurrentWeather.EMPTY, "Place")
+    val PREVIEW = WeatherForecast(Location.ZERO, emptyList(), CurrentWeather.EMPTY, "Place")
   }
 }

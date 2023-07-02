@@ -16,5 +16,7 @@ fun formatTemperature(value: Float, unit: String? = DEFAULT_TEMP_UNIT) = "$value
 
 fun formatWindSpeed(value: Float?, unit: String? = DEFAULT_WINDSPEED_UNIT) = "$value ${unit ?: DEFAULT_WINDSPEED_UNIT}"
 
+fun formatCloudCover(value: Int) = "$value %"
+
 private const val DEFAULT_TEMP_UNIT = "℃"
 private const val DEFAULT_WINDSPEED_UNIT = "km/h"

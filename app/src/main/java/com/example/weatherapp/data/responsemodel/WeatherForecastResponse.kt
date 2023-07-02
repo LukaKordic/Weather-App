@@ -7,8 +7,8 @@ import kotlinx.serialization.Serializable
 data class WeatherForecastResponse(
   val latitude: Double,
   val longitude: Double,
-  @SerialName("hourly_units") val hourlyUnits: HourlyUnits? = HourlyUnits(null),
-  val hourly: Hourly? = Hourly(emptyList(), emptyList()),
+  @SerialName("hourly_units") val hourlyUnits: HourlyUnits? = null,
+  val hourly: Hourly? = null,
   @SerialName("current_weather") val currentWeather: CurrentWeatherResponse? = null,
 )
 
