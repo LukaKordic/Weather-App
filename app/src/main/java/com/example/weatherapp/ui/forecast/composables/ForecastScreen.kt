@@ -17,7 +17,7 @@ fun ForecastScreen() {
 
   Column {
     CurrentWeather(currentWeather = uiState.data.currentWeather)
-    CurrentLocation(uiState.data.location)
+    CurrentLocation(uiState.data.place)
     HourlyForecastSlider(weatherForecast = uiState.data)
     if (uiState.loading) CircularProgressIndicator()
     if (uiState.error != null) Snackbar {

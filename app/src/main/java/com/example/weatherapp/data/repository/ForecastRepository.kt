@@ -3,7 +3,7 @@ package com.example.weatherapp.data.repository
 import com.example.weatherapp.data.api.OpenMeteoApi
 import com.example.weatherapp.data.location.Location
 import com.example.weatherapp.data.location.LocationProvider
-import com.example.weatherapp.data.responsemodel.mapToDomainModel
+import com.example.weatherapp.data.mapper.WeatherForecastMapper
 import com.example.weatherapp.domain.model.WeatherForecast
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
@@ -17,6 +17,7 @@ import javax.inject.Inject
 class ForecastRepository @Inject constructor(
   private val apiService: OpenMeteoApi,
   private val locationProvider: LocationProvider,
+  private val weatherForecastMapper: WeatherForecastMapper,
 ) {
 
   private val _forecastFlow =
@@ -38,7 +39,7 @@ class ForecastRepository @Inject constructor(
     try {
       val result = apiService.getWeatherForLocation(location.latitude, location.longitude)
       if (result.isSuccessful) {
-        result.body()?.let { _forecastFlow.tryEmit(Result.success(it.mapToDomainModel())) }
+        result.body()?.let { _forecastFlow.tryEmit(Result.success(weatherForecastMapper.mapToWeatherForecast(it))) }
       } else {
         result.errorBody()?.use {
           _forecastFlow.tryEmit(Result.failure(Throwable(message = result.message())))

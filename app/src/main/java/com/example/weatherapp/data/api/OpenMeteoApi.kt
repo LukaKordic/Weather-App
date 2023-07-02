@@ -9,8 +9,8 @@ interface OpenMeteoApi {
 
   @GET("forecast")
   suspend fun getWeatherForLocation(
-    @Query("latitude") latitude: Float,
-    @Query("longitude") longitude: Float,
+    @Query("latitude") latitude: Double,
+    @Query("longitude") longitude: Double,
     @Query("hourly") hourly: String = "temperature_2m",
     @Query("current_weather") showCurrentWeather: Boolean = true,
   ): Response<WeatherForecastResponse>
