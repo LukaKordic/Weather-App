@@ -15,7 +15,7 @@ class PeriodicallyChangingLocationProvider @Inject constructor() : LocationProvi
     while (true) {
       for (i in 0 until 10) {
         emit(testLocations[i])
-        println(testLocations[i])
+        println("PeriodicallyChangingLocationProvider.getLocation ${testLocations[i]}")
         delay(DELAY_PERIOD.seconds)
       }
     }
