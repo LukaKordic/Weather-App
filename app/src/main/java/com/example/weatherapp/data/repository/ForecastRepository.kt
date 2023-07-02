@@ -4,7 +4,7 @@ import com.example.weatherapp.data.api.OpenMeteoApi
 import com.example.weatherapp.data.location.Location
 import com.example.weatherapp.data.location.LocationProvider
 import com.example.weatherapp.data.responsemodel.mapToDomainModel
-import com.example.weatherapp.domain.WeatherForecast
+import com.example.weatherapp.domain.model.WeatherForecast
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.channels.BufferOverflow

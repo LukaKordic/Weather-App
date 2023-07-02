@@ -1,6 +1,6 @@
 package com.example.weatherapp.ui.forecast.presentation
 
-import com.example.weatherapp.domain.WeatherForecast
+import com.example.weatherapp.domain.model.WeatherForecast
 
 data class ForecastUiState(
   val loading: Boolean,

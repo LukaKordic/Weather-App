@@ -12,5 +12,6 @@ interface OpenMeteoApi {
     @Query("latitude") latitude: Float,
     @Query("longitude") longitude: Float,
     @Query("hourly") hourly: String = "temperature_2m",
+    @Query("current_weather") showCurrentWeather: Boolean = true,
   ): Response<WeatherForecastResponse>
 }
